@@ -1,0 +1,32 @@
+% Greens functions and Convolution integral summary
+
+\section{Response Theory Background Reading: Convolution and Green's functions}
+
+We give an overview of the theory of green's functions and the convolution integral for LTI systems.
+
+\subsection{Response via Convolution}
+
+From a signals point of view we can think of the linear, time invariant ODE:
+
+\begin{align*}
+\mathcal{L}x(t) = s(t) 
+\end{align*}
+
+as having two parts, the input signal $s(t)$ and the response $x(t)$. From this point of view the operator $\mathcal{L}^{-1}$ will give us the response of the system to given input.
+
+\begin{align*}
+\text{input} \to \mathcal{L}^{-1} \to \text{response}.
+\end{align*}
+
+In particular if we can figure out the response to a $\delta$ impulse (this is the green's function that plays the role of $\mathcal{L}^{-1}$), we can then use a convolution sum to figure out the general response. This idea works due to the linearity of the system. Explicitly we can write the response as:
+
+\begin{align*}
+x(t) = \int_{0}^{t} s(\tau) \chi (t - \tau) \dd \tau
+\end{align*} 
+
+
+where $\chi$ is the green's function.
+
+
+
+

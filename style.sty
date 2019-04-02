@@ -1,0 +1,36 @@
+\ProvidesPackage{style}
+
+% Read Pacakages
+\usepackage{physics}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{natbib}
+\usepackage{graphicx}
+
+% Header & Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[CE,CO]{\leftmark}
+\fancyfoot[CO,CE]{\thepage}
+
+% Definition Environments
+\theoremstyle{plain}
+  \newtheorem{thm}{Theorem}[section]
+  \newtheorem{lem}[thm]{Lemma}
+  \newtheorem{prop}[thm]{Proposition}
+  \newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+  \newtheorem{defn}[thm]{Definition}
+  \newtheorem{exmp}[thm]{Example}
+
+\theoremstyle{remark}
+	\newtheorem*{rem}{Remark}
+	\newtheorem*{note}{Note}
+
+% Custom Commands
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
