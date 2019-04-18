@@ -1,47 +1,32 @@
 % Convolution integral summary
 
-\section{Response via Convolution}
+\section{Response Functions}
 
-Response theory gives us information on how a system responds to a external forcing. For example, we may want to know how a pendulum responds to a push (doable), or more practically how the climate responds to changes in atmospheric composition (much harder). In this section we will outline the theory of the convolution integral for linear time invariant (LTI) systems. This will let us find the response of our LTI system to a general forcing $F$ if we are able to figure out the response $\chi$ of our system to the simplest perturbation possible, an impulse $\delta$.
-
-\subsection*{The Convolution integral}
-
-Let us denote our LTI system as:
+We begin with the linear system: 
 
 \begin{align}
-\mathcal{L}x(t) = F(t).
+\mathcal{L}x(t) = F(t). \label{linear-eqn}
 \end{align}
 
-Here $\mathcal{L}$ is a differential operator that governs the dynamics of the system and $F$ represents the external forcing. For example for the classical damped harmonic oscillator we have:
+Here $\mathcal{L}$ is a differential operator that governs the dynamics of the system and $F$ represents an external forcing, whilst the solution $x(t)$ represents the response of our system to the forcing. For example for the classical damped harmonic oscillator we have:
 
 \begin{align*}
 \mathcal{L} x = \dv[2]{x}{t} + \gamma \dv{x}{t} + \omega ^2 x.
 \end{align*} 
 
-If we able to invert $\mathcal{L}$ we would able to figure out the response $x$ to a given forcing $F$ by applying the $\mathcal{L}^{-1}$ to $F$:
+\noindent Finding the solution $\mathcal{L}^{-1}$ for an arbitrary forcing $F$ is in general not achievable. Fortunately, the principle of superposition means we need only find the response $\chi$ to an impulse forcing $\delta$ in order to find the response in general. Indeed recall the following fact:
 
-\begin{align*}
-\text{input} \to \mathcal{L}^{-1} \to \text{response}.
-\end{align*}
-
-Unfortunately, finding $\mathcal{L}^{-1}$ in general is hard. Fortunately the following theorem means we need only find the response $\chi$ to an impulse forcing in order to find the response in general.
-
-\begin{thm}[Response of an LTI system]
-The solution of $\mathcal{L}x(t) = F(t)$ is given by $x(t) = \chi * F = \int_0^t \chi(t - \tau) F(\tau) \dd \tau$.
+\begin{thm}
+If $\mathcal{L}\chi(t) = \delta(t)$, then the solution to equation \ref{linear-eqn} is given by $x(t) = \chi * F = \int_0^t \chi(t, \tau) F(\tau) \dd \tau$.
 \end{thm}
 
 
-We circumvent this using the theory of convolution to find a response function $\chi$ that will play the role of the inverse. 
-
-In particular if we can figure out the response to a $\delta$ impulse (this is the green's function that plays the role of $\mathcal{L}^{-1}$), we can then use a convolution sum to figure out the general response. This idea works due to the linearity of the system. Explicitly we can write the response as:
+Classical linear response theory deals with small perturbations to equilibrium systems. We further assume that $\chi(t, \tau)$ is invariant under time translations \cite{Tong} that is: 
 
 \begin{align*}
-x(t) = \int_{0}^{t} s(\tau) \chi (t - \tau) \dd \tau
-\end{align*} 
-
-
-where $\chi$ is the green's function.
-
-
-
-
+\chi(t, \tau) =  
+\begin{cases}
+\chi(t - \tau) \text{ if } t > \tau \\
+0 \text{ otherwise. } 
+\end{cases}
+\end{align*}
