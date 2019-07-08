@@ -1,4 +1,4 @@
-\documentclass[11pt,letterpaper,twoside,openright]{report}
+\documentclass[11pt,letterpaper,twoside,openright]{book}
 
 \title{Response Theory in Multiscale GFD Systems - MRes Thesis}
 \date{\today}
@@ -14,16 +14,30 @@
 
 \cleardoublepage
 
+\chapter{Introduction}
+
 % Linear Response Theory
-\chapter{Linear Response Theory}
+\chapter{Equilibrium Linear Response Theory}
 \input{tex/Linear-Response-Theory/Introduction.tex}
 \input{tex/Linear-Response-Theory/Greens-Functions-and-Convolution.tex}
 \input{tex/Linear-Response-Theory/Kramers-Kronig.tex}
 \input{tex/Linear-Response-Theory/FDT.tex}
 
 % Chaos and Ergodicity
+\chapter{Chaotic Dynamical Systems}
+\input{tex/Chaotic-Dynamical-Systems/Characterising-Chaos.tex} % LYAPUNOV EXPONENTS, STABLE/UNSTABLE Manifolds
+\input{tex/Chaotic-Dynamical-Systems/Hyperbolic-Dynamics.tex} % Splitting tangents space, toral automporphisms, arnold cat map
+\input{tex/Chaotic-Dynamical-Systems/Chaotic-Hypothesis.tex} % Could possibly go in above section
+\input
 
 % Ruelle's Response Theory
+\chapter{Response Theory for Nonequilibrium Systems}
+\input{tex/Nonequilibrium-Response/SRB.tex}
+%\input{the role of geometry}
+
+% Response Theory in GFD 
+\chapter{Applications in Geophysical Fluid Dynamics}
+\input{tex/GFD-Applications/FDT-in-Climate.tex}
 
 % Experimental Results
 
@@ -32,7 +46,7 @@
 \bibliographystyle{alpha}
 \refstepcounter{section} 
 \addcontentsline{toc}{chapter}{References}
-\bibliography{MRes} %Bibtex file location
+\bibliography{/Users/cfn18/Documents/BibTex-Files/MRes.bib} %Bibtex file location
 
 \end{document}
 
