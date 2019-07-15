@@ -1,1 +1,39 @@
 \section{The Fluctuation Dissipation Theorem}
+
+The fluctuation dissipation theorem is a corner stone of near-equilibrium statistical mechanics. There are many different presentations of the theorem, however the underlying idea is the same: the relation of an equilibrium average, in our case that of a correlation function, to the response of an observable that has been weekly perturbed from it's equilibrium state.
+
+Following Livi \cite{LiviPoliti2017} let us present a derivation of the fluctuation dissipation theorem in a bit more detail. The experimental set up is as follows, we consider a thermodynamic system consisting of $N$ particles obeying the laws of classical mechanics. We assume the system has reached an equilibrium and can thus be described by the canonical ensemble \cite{Greiner1995}. We will be interested in measuring the response of a thermodynamic observable $X$ to a weak perturbation $h$, where $h$ and $X$ are conjugate variables. Our presentation will be in three steps.
+
+First we consider the case where $h$ is a constant perturbation that shifts the equilibrium. The perturbation will then be turned off and we will look at how $X$ relaxes to the unperturbed equilibrium. Secondly, we will introduce the repsonse function $\chi$ that will allow us to generalise our argument for a time dependent perturbation $h(t)$. Finally, we will look at the fourier transform of $\chi$. For a review of the assumed Statistical Mechanics, Thermodynamics and Classical Mechanics we point the reader to \cite{Greiner1995}, \cite{JudithA.McGovern2016} and \cite{JohnBaez} respectively.\\
+
+\subsection{Constant Perturbation Field}
+
+We first consider the case where a constant perturbation field $h$ is turned on and our system relaxes to a new equilibrium state. At $t = 0$ the field will be turned off, and our system will relax back to the original equilibrium value due to the presence of a thermal bath. In the unperturbed state, the dynamics will be described by the Hamiltonian $\mathcal{H}$, whilst when the perturbation field is on, the dynamics will be described by the Hamiltonian $\mathcal{H}' = \mathcal{H} -hX$. We are interested in the value of our observable during the relaxation period:
+
+\begin{align}
+\expval{X(t)} &= \frac{\int \dd \mathcal{V} X(t) e^{-\beta \left( \mathcal{H}-hX(0) \right) }  }{\int \dd \mathcal{V} e^{-\beta \left( \mathcal{H}-hX(0) \right) }}. \label{relaxVal}
+\end{align}
+
+\noindent The idea in \ref{relaxVal} is that for $t >0$ the dynamics will be described the solution $X(t)$ for the Hamiltonian equations given by $\mathcal{H}$. These can be solved given an initial condition $X(0)$, which we will weight each solution by. Next since we are assuming $h$ is small, we can linearise:
+
+\begin{align}
+\expval{X(t)} \approx \frac{\int \dd \mathcal{V} X(t) e^{-\beta \mathcal{H} } \left(1 +\beta h X(0) \right)  }{\int \dd \mathcal{V} e^{-\beta\mathcal{H} } \left(1 +\beta h X(0) \right)},
+\end{align}
+
+\noindent we now divide the numerator and denominator on the right hand side by the unperturbed partition function $Z_0$:
+
+\begin{align}
+\expval{X(t)} = \frac{\expval{X(t) \left(1 +\beta h X(0) \right) }_0}{\expval{\left(1 +\beta h X(0) \right)}_0},
+\end{align}
+
+\noindent where $\expval{ \ldots }_0$ denotes the unperturbed equilibrium expected value. Rearranging we then arrive at a form of the FDT:
+
+\begin{align}
+\expval{X(t)} - \expval{X}_0 = \beta h \left( \expval{X(t)X(0)}_0 - \expval{X}_0 ^2 \right).
+\end{align}
+
+Note the right hand side is obtained purely from the equilibrium state whilst the left hand side is near-equilibrium response. 
+
+\subsection{Time Dependent Perturbation}
+\subsection{Fourier Point of View}
+
