@@ -29,11 +29,62 @@ We first consider the case where a constant perturbation field $h$ is turned on 
 \noindent where $\expval{ \ldots }_0$ denotes the unperturbed equilibrium expected value. Rearranging we then arrive at a form of the FDT:
 
 \begin{align}
-\expval{X(t)} - \expval{X}_0 = \beta h \left( \expval{X(t)X(0)}_0 - \expval{X}_0 ^2 \right).
+\expval{X(t)} - \expval{X}_0 = \beta h \left( \expval{X(t)X(0)}_0 - \expval{X}_0 ^2 \right).\label{FDT1}
 \end{align}
 
-Note the right hand side is obtained purely from the equilibrium state whilst the left hand side is near-equilibrium response. 
+Note the conceptual implications of \ref{FDT1}, the right hand side is obtained purely from the equilibrium state whilst the left hand side is near-equilibrium relaxation. Here then we have a bridge between equilibrium fluctuations and near-equilibrium perturbations. 
 
-\subsection{Time Dependent Perturbation}
+\subsection{Time Dependent Perturbations}
+
+The power of \ref{FDT1} is that it will allow us deduce the response function $\chi$. This means we can then calculate the response for a general time dependent perturbation.  Without loss of generality we will assume $\expval{X}_0 = 0$. First let's look at $\chi$ for the forcing that we used to derive \ref{FDT1}:
+
+\begin{align}
+h(t) = 
+\begin{dcases}
+h & t<0 \\
+0 & t \geq 0
+\end{dcases}
+\end{align}
+
+\noindent we have: 
+
+\begin{align}
+\expval{X(t)} &= \chi * h(t) \\
+&= h \int_{-\infty}^0 \dd t' \chi(t - t') \label{chiForh}
+\end{align}
+
+\noindent where we have used the time invariance and causality of $\chi$. Comparing \ref{chiForh} with \ref{FDT1} we can relate $\chi$ to the fluctuations:
+
+\begin{align}
+ \int_{-\infty}^0 \dd t' \chi(t - t') = \beta \expval{X(t)X(0)}_0 .
+\end{align}
+
+\noindent To arrive at a more general form of the FDT, namely one that gives $\chi$ we first take the time derivative of both sides, applying the fundamental theorem of calculus on the left. Then we multiply both sides by $\Theta$, noting that it is an identity element for causal functions. This simple calculations gives:
+
+\begin{align}
+\chi(t) = - \beta \Theta (t) \dv{t}\expval{X(t)X(0)}_0  \label{FDT}
+\end{align}
+
+\noindent As discussed in section \ref{Section: Response Functions}, $\chi$ allows us to calculate the response to a general time dependent forcing. The power of \ref{FDT} is that it gives us way to find the response function looking only at an equilibrium correlation function.
+
 \subsection{Fourier Point of View}
 
+Another point of view on the FDT can be gained from working with the Fourier transform of \ref{FDT}: 
+
+\begin{align}
+\chi(\omega) = - \beta \int_{-\infty}^{\infty} \dd t  e^{-\omega t} \Theta(t) \dv{t}\expval{X(t)X(0)}_0
+\end{align}
+
+\noindent which can be rewritten using the convolution theorem and the time derivative properties of Fourier transforms, (namely $\mathcal{F} \left( \dv{x}{t} \right) = i \omega \mathcal{F} (x)$). Specifically we have:
+
+\begin{align}
+\chi(\omega) &= - \frac{\beta}{2 \pi} \int_{-\infty}^{\infty} \dd \omega ' \Theta(\omega - \omega ') \expval{X(\omega)X(0)}_0.
+\end{align}
+
+\noindent Solving this integral takes some care and we point the reader to page $82$ of \cite{LiviPoliti2017} for the details. The key point is that one can recover the imaginary part of the transformed response function:
+
+\begin{align}
+\Im{ \chi(\omega)} = - \beta \frac{\omega}{2} \expval{X(\omega)X(0)}_0
+\end{align}
+
+\noindent This is significant in light of the Kramers-Kronig relations from section \ref{secition:Kramers-Kronig}, as we can now construct $\chi(\omega)$ from $\expval{X(\omega)X(0)}_0$. This is another form of the fluctuation dissipation theorem.

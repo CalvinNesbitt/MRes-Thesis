@@ -1,8 +1,14 @@
 % Convolution integral summary
 
-\section{Response Functions}
+\section{Response Functions} \label{section: Response Functions}
 
-We begin with the linear system: 
+We are interested in the response of a state variable $X$ to an external weak forcing $h$, where $h$ is coupled to $X$ i.e. they are conjugate. Throughout we will assume $h$ is small enough that the response $\expval{X}_h$ is linear in h. We will define then define the response function $\chi(t, t')$ as:
+
+\begin{align}
+\expval{X}_h = \chi * h
+\end{align}
+
+We begin us motivating response functions. Suppose we have some linear system: 
 
 \begin{align}
 \mathcal{L}x(t) = F(t). \label{linear-eqn}
@@ -21,12 +27,6 @@ If $\mathcal{L}\chi(t) = \delta(t)$, then the solution to equation \ref{linear-e
 \end{thm}
 
 
-Classical linear response theory deals with small perturbations to equilibrium systems. We further assume that $\chi(t, \tau)$ is invariant under time translations \cite{Tong} that is: 
+\subsection{Frequency Dependent Response}
 
-\begin{align*}
-\chi(t, \tau) =  
-\begin{cases}
-\chi(t - \tau) \text{ if } t > \tau \\
-0 \text{ otherwise. } 
-\end{cases}
-\end{align*}
+Looking at the Fourier transform of $\chi(t)$ we obtain %add appendix of livi physical interpretation of each part + that response is local in frequency

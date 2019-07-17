@@ -1,3 +1,21 @@
 \section{Properties of Response Functions}
-\subsection{Causality}
-\subsection{Kramers-Kronig Relations}
+
+Having introduced response functions, we will now describe their basic properties. First up we will examine physical constraints we will wish to impose on them and the mathematical consequences of these. In particular we will want them to be time invariant and causal. Building on the implications of causality we will then derive the Kramers-Kronig relations which allow us to relate the imaginary and real parts of the Fourier transformed response function $\chi(\omega)$. We will briefly mention the physical interpretation of each part before we move on. The following are standard results that can be found along with further details in \cite{LiviPoliti2017} and \cite{Reichl1999}.
+
+\subsection{The Implications of Causality}
+
+Cause must precede effect. This condition of causality is a natural requirement of our response functions, namely our system can't respond until it is first forced:
+
+\begin{align}
+\chi(t - t') = 
+\begin{cases*}
+\chi(t - t') & if $t -t' > 0$.\\
+0 & otherwise.
+\end{cases*}
+\end{align}
+
+This constraint limits the locations of poles $\chi(\omega)$.
+
+\subsection{The Kramers-Kronig Relations}
+
+Since $\chi$ is analytic in the upper half of the complex plane one can relate its imaginary and real parts.
