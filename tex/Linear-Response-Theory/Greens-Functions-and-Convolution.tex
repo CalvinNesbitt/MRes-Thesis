@@ -2,19 +2,20 @@
 
 \section{Response Functions} \label{section: Response Functions}
 
-We are interested in the response of a state variable $X$ to an external weak forcing $h$, where $h$ is coupled to $X$ i.e. they are conjugate. Throughout we will assume $h$ is small enough that the response $\expval{X}_h$ is linear in h. We will define then define the response function $\chi(t, t')$ as:
+The experimental set up is as follows, we consider a thermodynamic system consisting of $N$ particles obeying the laws of classical mechanics. We assume the system has reached an equilibrium and can thus be described by the canonical ensemble \cite{Greiner1995}. We will be interested in measuring the response of a state variable $X$ to a weak perturbation $h$, where $h$ and $X$ are conjugate variables. Throughout we will assume $h$ is small enough that the response $\expval{X}_h$ is linear in $h$. The response function $\chi(t, t')$ will give us the response to a forcing at time $t'$. We define $\chi(t, t')$ through:
 
-\begin{align}
-\expval{X}_h = \chi * h
+\begin{align} 
+\expval{X}_h &= \chi * h\\ \label{ChiDef}
+&= \int_{- \infty}^{\infty} \dd t' \chi(t - t') h(t')
 \end{align}
 
-We begin us motivating response functions. Suppose we have some linear system: 
+\noindent Where does this definition come from? Well, suppose we have some linear system: 
 
 \begin{align}
 \mathcal{L}x(t) = F(t). \label{linear-eqn}
 \end{align}
 
-Here $\mathcal{L}$ is a differential operator that governs the dynamics of the system and $F$ represents an external forcing, whilst the solution $x(t)$ represents the response of our system to the forcing. For example for the classical damped harmonic oscillator we have:
+\noindent Here $\mathcal{L}$ is a differential operator that governs the dynamics of the system and $F$ represents an external forcing, whilst the solution $x(t)$ represents the response of our system to the forcing. For example for the classical damped harmonic oscillator we have:
 
 \begin{align*}
 \mathcal{L} x = \dv[2]{x}{t} + \gamma \dv{x}{t} + \omega ^2 x.
@@ -26,7 +27,21 @@ Here $\mathcal{L}$ is a differential operator that governs the dynamics of the s
 If $\mathcal{L}\chi(t) = \delta(t)$, then the solution to equation \ref{linear-eqn} is given by $x(t) = \chi * F = \int_0^t \chi(t, \tau) F(\tau) \dd \tau$.
 \end{thm}
 
+\noindent Thus if we are able to find such a $\chi$ we are able to determine the response for any forcing. The take away, finding $\chi$ gives us the linear response $\expval{X}_h$.
+
 
 \subsection{Frequency Dependent Response}
 
-Looking at the Fourier transform of $\chi(t)$ we obtain %add appendix of livi physical interpretation of each part + that response is local in frequency
+Looking at the Fourier transform of the response function, dentoed $\chi(\omega)$ we can obtain some physical insight. Indeed each of the real and imaginary parts of the complex valued $\chi(\omega)$ has a physical interpretation \cite{LiviPoliti2017}. First of all through a simple manipulation one can show:
+
+\begin{align}
+\Im{\chi(\omega)} = - \Im{\chi(-\omega)}. 
+\end{align} 
+
+\noindent Namely, the imaginary part is odd and is therefore aware of the direction of time. This is the part of the response that contains information about dissipative processes \cite{LiviPoliti2017}. In contrast $\Re{\chi(\omega)}$ is even and insensitive to the arrow of time, we will refer to this as the \textit{reactive} part of the response function. Finally when we note that the definition of $\chi(t)$ is the form of a convolution, we can use the convolution theorem to write a relation between the Fourier transforms of \ref{ChiDef}:
+
+\begin{align}
+\expval{X(\omega)}_h &= \chi(\omega) h(\omega).
+\end{align}
+
+\noindent Thus, in the context of linear response theory, forcing at a given frequency excite response at the same frequency.

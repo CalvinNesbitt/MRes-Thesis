@@ -14,8 +14,51 @@ Cause must precede effect. This condition of causality is a natural requirement 
 \end{cases*}
 \end{align}
 
-This constraint limits the locations of poles $\chi(\omega)$.
+\noindent This constraint limits the locations of poles $\chi(\omega)$. Indeed let us evaluate the integral on the right hand side of the inverse Fourier transform:
+
+\begin{align}
+\chi(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \dd \omega e^{- \omega t} \chi (\omega).
+\end{align}
+
+\noindent On the one hand for $t<0$ causality implies the integral is $0$. On the other hand if we extend $\omega$ to the complex plane via $ z = \omega + i \epsilon$ we can complete the integral via a semi circle in the upper half plane. Applying Jordan's lemma, we will see the integral along the semi-circle is $0$. Thus the integral along the total contour is $0$ in the limit and applying the residue theorem, we have no poles in the upper half plane.
 
 \subsection{The Kramers-Kronig Relations}
 
-Since $\chi$ is analytic in the upper half of the complex plane one can relate its imaginary and real parts.
+Since $\chi$ is analytic in the upper half of the complex plane one can relate its imaginary and real parts. The relations between the two are known as the Kramers-Kronig relations. We will sketch the derivation as in \cite{Reichl1999}. We introduce the function:
+
+\begin{align}
+f(z) = \frac{\chi(z)}{z - u}
+\end{align}
+
+\noindent where $u$ is real. Integrating $f$ on a semi circle in the upper half plane that avoids $u$ we have:
+
+\begin{align}
+\int_{\Gamma} f(z) = \int_{- \infty}^{u-r} \dd \omega \frac{\chi(\omega)}{\omega - u} + \int_{u+r}^{\infty} \dd \omega \frac{\chi(\omega)}{\omega - u} + \int_{0}^{\pi} \dd \phi i \chi \left( u + re^{i\phi} \right)
+\end{align}
+
+\noindent we can identify the first two terms as the Cauchy principal value for the singularity at $u$ so we have:
+
+\begin{align}
+PV \int_{- \infty}^{\infty} \dd \omega \frac{\chi(\omega)}{\omega - u} &= - \lim_{r \to \ 0} \int_{0}^{\pi} \dd \phi i \chi \left( u + re^{i\phi} \right)\\
+&= i \pi \chi(u).
+\end{align}
+
+Expanding $\chi(u)$ in to real and imaginary parts and rearranging we then arrive at the Kramers-Kronig relations:
+
+\begin{align}
+\Re{\chi(u)} = \frac{1}{\pi} PV \int_{- \infty}^{\infty} \dd \omega \frac{ \Im{\chi(\omega)} }{\omega - u} 
+\end{align}
+
+and
+
+\begin{align}
+\Im{\chi(u)} = - \frac{1}{\pi} PV \int_{- \infty}^{\infty} \dd \omega \frac{ \Re{\chi(\omega)} }{\omega - u}.
+\end{align}
+
+\noindent The importance of these relations are that they allow us to rewrite the response $\chi(\omega)$ solely in terms of it's dissipative part:
+
+\begin{align}
+\chi(\omega) = \lim{\eta \to 0} \int \dd \omega' \frac{\Im{\chi(\omega)}}{\pi\left(\omega' - \omega - i \eta \right)}.
+\end{align}
+
+\noindent The power of this will become fully evident once we introduce the fluctuation dissipation theorem in the next section that allows us to compute the dissipative part of the response function solely from equilibrium time correlations.
