@@ -1,0 +1,35 @@
+\section{The Ergodic Theory of Chaos}
+
+\subsection{Characterising Chaos}
+
+A central characterisation of chaotic dynamics is a sensitivity to intial conditions. Under such dynamics nearby trajectories will diverge exponentially. Practically this means no matter how much we are able to refine an initial measurement, eventually subgrid scale processes will lead to different trajectories. Given a dynamical system $\left( \mathcal{M}, f \right)$, we can quantify how chaotic it is dynamically through the lyapunov exponents of the map $f$. Specifically, lyapunov exponents give the exponential rate at which a pertubation to an initial condition increases (or decreases) \cite{Eckmann1985}. Moreover, geometrically they specify the direction in which an attractor $\mathcal{A}$ is stretching or contracting \cite{Ott2002}. These exponents are guaranteed to exist under appropriate conditions due to Oseldec's multiplicative theorem \cite{Eckmann1985}. Let us illustrate how we can calculate these exponents for $\mathcal{M} = \R^n$. We suppose there exists an eigenvector basis for $\mathcal{M}$ of expanding/contracting directions $v_1, ... , v_n$ with corresponding eigenvalues $\lambda_1 > ...> \lambda_n$. As our perturbed dynamics evolve the directions with largest eigenvalues will dominate the stretching of $\mathcal{A}$. If we can control the perturbation so as to never enter the span of $v_1$ we ensure the direction of stretching in $v_2$ dominates and so on. We can then follow \cite{Ott2002} to define each $\lambda_i$. Here $x_0$ denotes the initial condition and $u_0$ is the direction of the perturbation that ensures we don't enter the span of $v_1, ..., v_{i-1}$.
+
+\begin{align*}
+\lambda_i = \lim_{t \to \infty} \frac{1}{t} \ln \abs{Df^t(x_0) \cdot u_0}
+\end{align*}
+
+\noindent Having at least $\lambda_1 > 0$ is a way that we can quantitatively describe a system's dynamics as chaotic.
+
+\subsection{Hyperbolic Invariant Sets}
+
+Many formal results for chaotic dynamics are only known in cases where hyperbolicity is present. Given a set $\Sigma$ that is invariant under the dynamics $f$, we say that it is hyperbolic if there is a splitting of the tangent space for all $x \in \Sigma$ in to stable and unstable subspaces\cite{Ott2002}:
+
+\begin{align}
+T_x = E_x^s \oplus E_x^u
+\end{align}
+
+\noindent where the stable and unstable manifolds $E_x^s$, $ E_x^u$ are defined respectively as:
+
+\begin{align}
+y \in E_x^s \iff \abs{Df^t(x)y} < K \lambda ^t \abs{y}
+\end{align}
+
+\noindent and
+
+\begin{align}
+y \in E_x^u \iff \abs{Df^{-t} (x)y} < K \lambda ^t \abs{y}
+\end{align}
+
+\noindent for some $K > 0$ and $\lambda \in (0, 1)$. Moreover, we note that this splitting should vary continuously with $x$. Of course, the intuition behind each of these definitions is that points on the stable manifold $E_x^s$ approach $\Sigma$ whilst those in $E_x^u$ diverge.  
+
+Gallavotti and Cohen have proposed in their \textit{chaotic hypothesis} that fluid systems are assumed to be hyperbolic \cite{Gallavotti1995a}, that is 

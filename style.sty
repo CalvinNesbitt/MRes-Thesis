@@ -9,11 +9,11 @@
 \usepackage{mathtools}
 
 % Header & Footer
-\usepackage{fancyhdr} \pagestyle{fancy} \renewcommand{\chaptermark}[1]%
-{\markboth{\MakeUppercase{\thechapter.\ #1}}{}} \renewcommand{\sectionmark}[1]%
-{\markright{\MakeUppercase{\thesection.\ #1}}} \renewcommand{\headrulewidth}{0.5pt} \renewcommand{\footrulewidth}{0pt} \newcommand{\helv}{%
-\fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont} \fancyhf{}
-\fancyhead[LE,RO]{\helv \thepage} \fancyhead[LO]{\helv \rightmark} \fancyhead[RE]{\helv \leftmark}
+\usepackage{fancyhdr} 
+\pagestyle{fancy} 
+\fancyhf{}
+\fancyhead[CE,CO]{\leftmark} 
+\fancyfoot[CE,CO]{\thepage}
 
 % Definition Environments
 \theoremstyle{plain}

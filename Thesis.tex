@@ -1,4 +1,4 @@
-\documentclass[11pt,letterpaper,twoside,openright]{book}
+\documentclass[11pt,letterpaper,oneside,openright]{report}
 
 \title{Response Theory in Multiscale GFD Systems - MRes Thesis}
 \date{\today}
@@ -7,39 +7,32 @@
 \usepackage{style} % Read Style Package
 
 \begin{document}
-%
+
 \maketitle
 
 \tableofcontents 
 
 \cleardoublepage
 
-%\chapter{Introduction}
+\chapter{Introduction}
 
 % Linear Response Theory
-\chapter{Linear Response Theory}
+\chapter{Linear Response Theory} \label{Chapter:LRT}
 \input{tex/Linear-Response-Theory/Introduction.tex}
 \input{tex/Linear-Response-Theory/Greens-Functions-and-Convolution.tex}
 \input{tex/Linear-Response-Theory/Kramers-Kronig.tex}
 \input{tex/Linear-Response-Theory/FDT.tex}
 
-% Chaos and Ergodicity
-\chapter{Chaotic Dynamical Systems}
-\input{tex/Chaotic-Dynamical-Systems/Characterising-Chaos.tex} % LYAPUNOV EXPONENTS, STABLE/UNSTABLE Manifolds
-\input{tex/Chaotic-Dynamical-Systems/Hyperbolic-Dynamics.tex} % Splitting tangents space, toral automporphisms, arnold cat map
-\input{tex/Chaotic-Dynamical-Systems/Chaotic-Hypothesis.tex} % Could possibly go in above section
-
-
 % Ruelle's Response Theory
-\chapter{Response Theory for Nonequilibrium Systems}
-\input{tex/Nonequilibrium-Response/SRB.tex}
-%\input{the role of geometry}
+\chapter{Response Theory away from Equilibrium}
+\input{tex/Nonequilibrium-Response/Introduction.tex}
+\input{tex/Nonequilibrium-Response/Ergodic-Theory-of-Chaos.tex}
+\input{tex/Nonequilibrium-Response/Ruelle-Response}
 
 % Response Theory in GFD 
-\chapter{Applications in Geophysical Fluid Dynamics}
-\input{tex/GFD-Applications/FDT-in-Climate.tex}
-
-% Experimental Results
+\chapter{Response Theory in Geophysical Fluid Dynamics}
+\input{tex/GFD-Applications/Review.tex}
+\input{tex/GFD-Applications/MAOOAM.tex}
 
 % Bibliography
 \clearpage 

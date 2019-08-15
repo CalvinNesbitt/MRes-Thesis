@@ -1,6 +1,6 @@
 \section{Properties of Response Functions}
 
-Having introduced response functions, we will now describe their basic properties. First up we will examine physical constraints we will wish to impose on them and the mathematical consequences of these. In particular we will want them to be time invariant and causal. Building on the implications of causality we will then derive the Kramers-Kronig relations which allow us to relate the imaginary and real parts of the Fourier transformed response function $\chi(\omega)$. We will briefly mention the physical interpretation of each part before we move on. The following are standard results that can be found along with further details in \cite{LiviPoliti2017} and \cite{Reichl1999}.
+Having introduced response functions, we will now describe their basic properties. First up we will examine physical constraints we will wish to impose on them and the mathematical consequences of these. In particular we will want them to be time invariant and causal. Building on the implications of causality we will then derive the Kramers-Kronig relations which allow us to relate the imaginary and real parts of the Fourier transformed response function $\chi(\omega)$. The following are standard results that can be found along with further details in \cite{LiviPoliti2017} and \cite{Reichl1999}.
 
 \subsection{The Implications of Causality}
 
@@ -14,7 +14,7 @@ Cause must precede effect. This condition of causality is a natural requirement 
 \end{cases*}
 \end{align}
 
-\noindent This constraint limits the locations of poles $\chi(\omega)$. Indeed let us evaluate the integral on the right hand side of the inverse Fourier transform:
+\noindent This constraint limits the locations of the poles of the transformed response function $\chi(\omega)$. Indeed let us evaluate the integral on the right hand side of the inverse Fourier transform:
 
 \begin{align}
 \chi(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \dd \omega e^{- \omega t} \chi (\omega).
@@ -58,7 +58,7 @@ and
 \noindent The importance of these relations are that they allow us to rewrite the response $\chi(\omega)$ solely in terms of it's dissipative part:
 
 \begin{align}
-\chi(\omega) = \lim{\eta \to 0} \int \dd \omega' \frac{\Im{\chi(\omega)}}{\pi\left(\omega' - \omega - i \eta \right)}.
+\chi(\omega) = \lim_{\eta \to 0} \int \dd \omega' \frac{\Im{\chi(\omega)}}{\pi\left(\omega' - \omega - i \eta \right)}.
 \end{align}
 
 \noindent The power of this will become fully evident once we introduce the fluctuation dissipation theorem in the next section that allows us to compute the dissipative part of the response function solely from equilibrium time correlations.
