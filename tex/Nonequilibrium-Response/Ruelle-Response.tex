@@ -1,5 +1,6 @@
 \section{Ruelle's Response}
 Ruelle has shown that for uniformly hyperbolic dynamical systems, the linear response far from equilibrium is similar to the linear response close to equilibrium \cite{Ruelle}. Before we present these results we will first discuss the concept of an SRB measure.
+
 \subsection{SRB Measures}
 
 \subsection{Linear response: the uniformly hyperbolic case}
@@ -10,5 +11,57 @@ As in chapter \ref{Chapter: LRT} we are interested in finding the response funct
 \delta_t \rho(A) = \int \dd t' \chi(t - t') \phi (t')
 \end{align}
 
-\noindent We will derive the basic result for the case of discrete dynamics $f$.
+\noindent Following Ruelle \cite{Ruelle} we will derive the linear response $\delta \rho$ for the general case where $\rho$ is an SRB measure and $f$ is a diffeomorphism of $M$. For such a measure we have:
 
+\begin{align}
+\rho(A) &= \lim_{n \to \infty} \frac{1}{n} \sum_{k=1} ^n \int l( \dd x) A (f^k x)\\
+&= \lim_{n \to \infty} \frac{1}{n} \sum_{k=1} ^n \int (f^{k*}l)( \dd x) A (x)
+\end{align}
+
+\noindent Now we consider the perturbed dynamics $\tilde{f} x = f x + X(fx)$, which we linearise as:
+
+\begin{align}
+\tilde{f}^kx = f^k x + \sum_{j = 1}^k \left(T_{f^j x} f^{k - j} \right) X(f^j x).
+\end{align}
+
+\noindent The value of our observable is then:
+
+\begin{align}
+A(\tilde{f}^k x) &= A(f^k x) + A'(f^k x) \sum_{j = 1}^k \left(T_{f^j x} f^{k - j} \right) X(f^j x)\\
+&= A(f^k x) + \sum_{j=1} ^k X(f^j x) \grad_{f^j x} \left(A \circ f ^{k -j} \right).
+\end{align}
+
+\noindent From here we can then calculate the response as:
+
+\begin{align}
+\delta \rho (A) &= \lim_{n \to \infty} \frac{1}{n} \sum_{k = 1}^n \sum_{j=1}^k \int l (\dd x) X(f^j x) \grad_{f^j x} \left(A \circ f ^{k -j} \right)\\
+&= \lim_{n \to \infty} \frac{1}{n} \sum_{k = 1}^n \sum_{j=1}^k \int (f^{j*} l (\dd x )) X(x) \grad_{x} \left(A \circ f ^{k -j} \right)\\ 
+&= \lim_{n \to \infty} \frac{1}{n} \sum_{i \geq 0} \sum_{j=1}^{n-i} \int (f^{j*} l (\dd x )) X(x) \grad_{x} \left(A \circ f ^i \right)
+\end{align}
+
+\noindent Using $\lim_{n \to \infty} \frac{1}{n} \sum_{j=1}^{n-i} f^{j*} l = \rho$ we then arrive at:
+
+\begin{align}
+\delta \rho (A) = \sum_{n =0}^\infty \int \rho (\dd x) X(f^{-n}x) \grad_{f^{-n}x}\left(A \circ f^n \right) \label{response}
+\end{align}
+
+\noindent We note the fact the sum in \ref{response} extends over $n \geq 0$ can be physically interpreted as causality \cite{Ruelle}. In particular the response of $\rho(A)$ to the perturbation $X$ is the sum of the $n$ terms corresponding to the response at previous times. Looking at the fourier transform of \ref{response} we also obtain an expression for the susceptibility:
+
+\begin{align}
+\Psi(\lambda) = \sum_{n=0}^\infty \lambda ^n \int \rho (\dd x) X(x) \grad_x \left(A \circ f^n \right)
+\end{align}
+
+\noindent where we have written $\lambda = e^{in\omega}$. The key result shown by Ruelle is that in the uniformly hyperbolic case if $X^s$ and $X^u$ are the components of $X$ in  the stable and unstable directions one can write:
+
+\begin{align}
+\Psi(\lambda) = \Psi ^s(\lambda) + \Psi ^u (\lambda)
+\end{align}
+
+\noindent where:
+
+\begin{align}
+\Psi^s(\lambda) &= \sum_{n=0}^\infty \lambda^n \int \rho(\dd x) \left( \left(T_x f^n \right) X^s \right) \grad_{f^n x} A \\
+\Psi^u(\lambda) &= - \sum_{n=0}^\infty \lambda^n \int \rho(\dd x) \left( \divtext_x^u X^u \right) A(f^n x)
+\end{align}
+
+\noindent The above is proven in \cite{Ruelle1997}. Note that the $\Psi^u$ term is given by a correlation function. Physically we interpret this as the natural fluctuations in the unstable directions of the dynamics. Thus, in the non-equilibrium case, we note the non-equivalence of free and forced fluctuations gives an alternative version of the fluctuation dissipation theorem where these fluctuations are traditionally equivalent.
