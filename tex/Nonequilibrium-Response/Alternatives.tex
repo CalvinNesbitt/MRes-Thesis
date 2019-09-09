@@ -1,0 +1,21 @@
+\section{An Alternative Approach: Addition of Noise} \label{Ruelle Alternatives}
+
+Following the `Theory' section of \cite{Gritsun2007} we briefly mention an alternative to the Ruelle formalism that has been used to formulate Linear Response Theory for GFD applications. As also pointed out in\cite{Baladi2014}, the key question underlying the results presented in section \ref{Section: Ruelle} is differentiability of the function: 
+
+\begin{align}
+t \to \int \psi \dd{\mu_t}
+\end{align}
+
+\noindent Note $\psi$ is an observable. If so we are then hopefully able to derive an expression for the linear response to a perturbation via:
+
+\begin{align} \label{Baladi: Response Formula}
+\pdv{t} \int \psi \dd{\mu_t} \Big|_{t=0} 
+\end{align}
+
+\noindent We have seen that Ruelle was able to do this in the setting of uniform hyperbolic case for systems with an invariant SRB measure. The difficulty for more general chaotic systems, is that they tend to have strange attractors which are usually fractal in nature. This often leads to $\mu_t$ becoming singular meaning the evaluation of the above integral is not possible. One way of resolving this issue is to add a stochastic small white noise term $\epsilon \eta(t)$ where $(\epsilon << 1)$ to our governing dynamics:
+
+\begin{align}
+\dv{x}{t} = f(x) + \epsilon \eta(t) \label{Noise dynamics}
+\end{align}
+
+\noindent A common physical justification for the $\epsilon \eta(t)$ term in practial application such as \cite{Gritsun2007} is the impact of unresolved processes in a given model or the results of computer round off error when performing model simulations numerically. From the theoretical stand point the noise term smooths the attractor meaning that we are then able to evaluate equation \ref{Baladi: Response Formula}. We note that in chapter \ref{Chapter Applications} we shall further discuss \cite{Gritsun2007} where this approach is taken. In particular we will see how making a few further assumptions on $\mu_t$ allows one to get a FDT result for a non-equilibrium system.

@@ -4,8 +4,50 @@
 
 In their 2011 paper \cite{Lucarini2011}, Lucarini and Sarno successfully applied Ruelle's linear response theory to the Lorenz 96 model. The L96 model is a simplified model of the atmosphere on a latitudinal ring. Although simple, L96 has dynamics that incorporate the key physical processes in the atmosphere: dissipation, advection and an external forcing: 
 
-\begin{align}
-\dv{x_i}{t} = x_{i-1} \left( x_{i+1} - x_{i-2} \right) - x_i + F.
+\begin{align} \label{L96}
+\dv{x_i}{t} = x_{i-1} \left( x_{i+1} - x_{i-2} \right) - x_i + F. 
 \end{align} 
 
-\noindent In the above, $x_i$ are the grid points on the latitudinal ring. The quadratic term represents advection, the $x_i$ term thermal/mechanical damping and $F$ the external forcing. 
+\noindent In the above, $x_i$ are the grid points on the latitudinal ring. The quadratic term represents advection, the $x_i$ term thermal/mechanical damping and $F$ the external forcing. The authors looked at the response of two thermodynamic observables, namely the energy $E = \frac{1}{2} \sum_i x_i ^2$ and the total momentum of the system $M = \sum_i x_i$. Following Ruelle, the authors implemented perturbations of the form $f(t)X$. The time modulation being governed by $2 \epsilon \cos(\omega t)$ where $\epsilon$ is a parameter controlling the strength of perturbation and $\omega$ is the frequency of perturbation. The spatial modulation $X$ was implemented in two forms, globally and locally. In the global perturbation, all points on the latitudinal ring were perturbed simultaneously, whilst a single point was perturbed in the local experiments.\\
+
+\noindent In the framework of Ruelle's response theory, the authors derive various integral relations for the L96 model in the form of Kramers-Kronig relations and thermodynamic sum rules. Using data obtained via numerical integrations of \ref{L96} the authors were able to validate the derived integral relations numerically. Specifically, the thermodynamic sum rules were found to hold to great success in all cases. The Kramers-Kronig relations were also found to hold to a high degree of accuracy once the the spectral range of the perturbations had been extended via extrapolation. These results are an encouraging indication that Ruelle's response theory provides a solid theoretical basis for understanding atmospheric response to climate change. Most excitingly the author's show how to construct the linear Green function which allows one to predict the response over all time scales. 
+
+\subsection{Gritsun and Lucarini 2017}
+
+In \cite{Gritsun2017}, the response of a quasi-geostrophic barotropic model to perturbations affecting the forcing and dissipation are studied. Taking in account equation \ref{Response Geometry} from Ruelle's response theory \cite{Ruelle}, the authors explore the geometry of the forcing and in particular the effectiveness of the fluctuation dissipation theorem. By constructing the covariant lyapunov vectors of the model, the authors are able to measure the proportion of the forcing along the stable and unstable directions. Specifically they find that for an orographic forcing a higher proportion of the forcing is along the stable direction of the flow than for perturbation to the boundary layer friction. This is of interest as one would then expect the fluctuation dissipation theorem to be less effective in the case of the orographic forcing. Indeed this is what is found in \cite{Gritsun2017} when the author's reconstruct the green's function and compare to FDT reconstructed green's function for each forcing. This of course further evidence for the case using Ruelle's response theory over the traditional FDT in computing climatic response. Interestingly when constructing the susceptibility, the author's also found a 'climatic surprise' in the form of an orographically forced Rossby wave. This resonant feature was not apparent in the power spectrum, so is further support for using response theory in predicting the results of climatic forcing. Interestingly the author's are able to explain the climatic surprise via UPO analysis. A final point worth noting is that, as in \cite{Lucarini2011}, the author's were able to use the Kramers-Kronig relations to verify the validity of their data analysis when constructing the response functions.
+
+\subsection{Lucarini, Ragone, Lunkeit 2016}
+
+Further support for the use of response theory when evaluating a high dimensional climate can be found in \cite{Lucarini2017a}. Here Ruelle's response theory is applied to a global circulation model, PLASIM, which has approximately $10^5$ degrees of freedom. The author's use the theory to not only look at globally averaged observables but also spatial patterns of the response. \\
+
+\noindent In both cases, temperature and precipitation are used as observables, whilst the authors perturb the $\text{CO}_2$ concentration levels mimicking a typical IPCC experiment \cite{Change2014}. The authors are then able to construct the response functions by measuring the response for a simple time modulation and then inverting \ref{basic response}:
+
+\begin{align}
+\dv{t} \expval{\phi}_0^1(t) = \epsilon G_\phi ^1 (t)
+\end{align} 
+
+\noindent Here the left hand side is the measure response whilst $G_\phi ^1 (t)$ is the response function. The authors then test these constructed green's function against a numerical run for a differing time modulation. Although performing well in both cases, the response function for the globally average temperature is found to perform better than that for precipitation. In particular, in the precipitation case, the response function is found to be very noisy. This is indicative of the dependence of response theory on the observable in question. \\
+
+\noindent Interestingly, the authors also explore the spatial structure of the response by defining longitudinal averages as observables and constructing response functions for each latitude. Here the response functions constructed for temperature field performs well apart from in high latitudes at certain periods. This is explained by the non-linear ice-albedo feedback mechanism and the failure of the linear response to represent this. Similarly, non-linear processes, such as the impact of the water budget on the mid-latitudes, are used to explain the performance of the response function in the spatial precipitation case, which is worse than that for the spatial temperature field.\\
+
+\noindent Although the results presented, in particular in the prospect 
+
+\subsection{Gritsun \& Branstator 2006}
+
+In section \ref{Ruelle Alternatives} we have presented some of the theoretical basis of \cite{Gritsun2007}. Let us finish this discussion as well the applicability of these results to a climate modelling scenario. The paper outlines a derivation of the FDT that the authors argue is applicable to the climate system. This is used to construct a linear response function $\chi$, the reliability of which is then tested for a variety of forcings in the context of an atmosheric general circulation model (AGCM). \\
+
+\noindent Following the discussion in \ref{Ruelle Alternatives}, the authors associate a Fokker-Planck equation \cite{Risken1996} to \ref{Noise dynamics}:
+
+\begin{align}
+\dv{\rho}{t} + \div{f(\rho)} = \epsilon \laplacian \rho. \label{Fokker Planck Gritsun}
+\end{align}
+
+\noindent The authors then claim that \ref{Fokker Planck Gritsun} will have a unique solution for climate systems, justifying the claim by citing results for simpler fluid systems where this has been proven to be the case e.g. $2D$ Navier-Stokes. By making a further Gaussian assumption on $\rho$, they derive a version of the FDT they claim to be valid for climate modelling:
+
+\begin{align}
+\chi(t) = \int_0 ^t C(\tau)C^{-1}(0) \dd \tau.
+\end{align}
+
+\noindent $C$ here is a covariance matrix arising from the Gaussian assumption on $\rho$. This expression is used to calculate $\chi(t)$ for an AGCM with approximately $18000$ components. For a variety of forcing $\chi$ is found to perform well when compared to the AGCM's actual response except in cases where the response of the model is small. The poor performance of $\chi$ is explained by the authors to be the result of $\chi$ being constructed on a reduced state space.
+
+

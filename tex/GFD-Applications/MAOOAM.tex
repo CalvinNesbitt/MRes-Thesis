@@ -1,1 +1,61 @@
 \section{MAOOAM}
+
+\subsection{Model Outline}
+
+The Modular Arbitrary Order Ocean Atmosphere Model (MAOOAM) is a spectral, coupled atmosphere ocean model that allows for an arbitrary number of modes to be kept in the spectral decomposition \cite{Cruz2016}. The atmosphere component is two-layer quasi-geostrophic and is coupled to a QG shallow-water ocean layer. We note that that the coupling is both thermal and mechanical. The mechanics for the model are governed by forced QG equations:
+
+\begin{align} \label{Mechanical equations}
+ \pdv{t} \left( \laplacian \psi_a^1 \right) + J \left(\psi_a ^1 , \laplacian \psi_a^1 \right) + \beta \pdv{\psi_a^1}{x} = -k'_d \laplacian \left(\psi_a^1 - \psi_a^3 \right) + \frac{f_0}{\Delta p} \omega
+\end{align}
+
+\begin{multline}
+ \pdv{t} \left( \laplacian \psi_a^3 \right) + J \left(\psi_a ^3 , \laplacian \psi_a^3 \right) + \beta \pdv{\psi_a^3}{x} \\ = k'_d \laplacian \left(\psi_a^1 - \psi_a^3 \right) - \frac{f_0}{\Delta p} \omega - k_d \laplacian \left(\psi_a^3 - \psi_o \right) 
+\end{multline}
+
+\begin{multline}
+ \pdv{t} \left( \laplacian \psi_o - \frac{\psi_o}{L^2_R} \right) + J \left(\psi_o , \laplacian \psi_o \right) + \beta \pdv{\psi_o}{x} \\ = -r \laplacian \psi_o + \frac{C}{\rho h} \laplacian \left(\psi_a^3 - \psi_o \right).
+\end{multline}
+
+\noindent Whilst the thermodynamics are governed by an energy balance scheme:
+
+\begin{align}\label{Thermodynamic equations 1}
+\gamma_a \left( \pdv{T_a}{t} + J(\psi_a, T_a) - \sigma \omega \frac{p}{R}\right) &= - \lambda(T_a - T_o) + \epsilon_a \sigma_B T_a^4 - 2 \epsilon_a \sigma_B T_a^4+ R_a \\ 
+\gamma_o \left( \pdv{T_o}{t} + J(\psi_o, T_o) \right) &= - \lambda(T_o - T_a) - \sigma_BT_o^4 + \epsilon_a \sigma_B T_a^4 + R_o \label{Thermodynamic equations 2}
+\end{align}
+
+\noindent An explanation of each term in equations \ref{Mechanical equations} - \ref{Thermodynamic equations 2} can be found in table \ref{MAOOAM Table}. The quartic long term radiation fluxes in \ref{Thermodynamic equations 1} and \ref{Thermodynamic equations 2} are linearised around spatially uniform temperatures $T_o^0$ and $T_a^0$. Then through use of the hydrostatic relation and ideal gas law the authors reduced the independent variables to $\psi_a = \frac{\psi_a^1 + \psi_a^3}{2}$, $\psi_o$, $\delta T_a$ and $\delta T_o$. Here $\psi_a$ is the atmospheric barotropic stream function whilst $\delta T_a$ and $\delta T_o$ are temperature anomalies resulting from the aforementioned linearisation.\\
+
+\noindent Each independent variable is then approximated by a truncated Fourier expansion where different basis functions, determined by the boundary conditions, are used for the atmosphere and ocean. We note that the atmosphere is assumed to be zonally periodic with no-flux in the meridional direction whilst the ocean is a box with no-flux along all boundaries.  The model then solves for the coefficients of the Fourier expansions by solving a series of $2(n_a + n_o)$ ODEs. Here $n_a$ and $n_o$ are the number of basis functions used for the Fourier expansion in the atmosphere and ocean respectively. We note that both $n_a$ and $n_o$ can be freely changed by the model user.
+
+\begin{table}
+\begin{center}
+{\begin{tabular}{ |c c c c| } 
+ \hline
+ Term & Meaning & Term & Meaning \\
+ \hline
+ $\psi_a^1$ & $250$ hPa atmospheric streamfunction & $T_a$ & Atmospheric temperature  \\ 
+ $ \psi_a^3$ & $750$ hPa atmospheric streamfunction & $T_o$ & Ocean temperature  \\ 
+ $\psi_o$ & Ocean streamfunction & $\omega = \dv{p}{t}$ & Vertical velocity  \\ 
+ $n$ & Aspect ratio & $L_R$ & Reduced Rossby deformation radius  \\ 
+ $L$ & Characteristic length scale & $\rho$ & Ocean density  \\ 
+ $f_0$ & Coriolis parameter & $\sigma _B$ & Boltzmann constant  \\ 
+ $\lambda$ & Atmosphere-ocean heat transfer & $\sigma$ & Atmosphere static stability  \\ 
+ $r$ & Bottom ocean friction & $\beta$ & Rossby parameter  \\ 
+ $d = \frac{C}{\rho h}$ & Drag coefficient & $R$ & Ideal gas constant  \\ 
+ $C_o$ & Ocean short wave insolation & $\gamma_o$ & Ocean heat capacity  \\ 
+ $C_a$ & Atmosphere short wave insolation & $\gamma_a$ & Atmosphere heat capacity  \\ 
+ $k_d$ & Atmospheric layer friction & $T_a^0$ & Atmosphere base temperature  \\ 
+ $k'_d$ & Atmosphere ocean layer friction & $T_o ^0$ & Ocean base temperature  \\ 
+ $h$ & Ocean depth & $\epsilon_a $ & Atmospheric emissivity  \\ 
+ \hline
+\end{tabular}}
+\end{center}
+\caption{Terms appearing in MAOOAM model equations.} \label{MAOOAM Table}
+\label{table:1}
+\end{table}
+
+\subsection{Model Dynamics}
+
+MAOOAM exhibits a low frequency variation \cite{Vannitsem2015} \cite{Vannitsem2015a}
+
+\subsection{Experimental Set up}
