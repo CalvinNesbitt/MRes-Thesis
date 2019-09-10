@@ -29,33 +29,35 @@ The Modular Arbitrary Order Ocean Atmosphere Model (MAOOAM) is a spectral, coupl
 
 \begin{table}
 \begin{center}
-{\begin{tabular}{ |c c c c| } 
- \hline
- Term & Meaning & Term & Meaning \\
- \hline
- $\psi_a^1$ & $250$ hPa atmospheric streamfunction & $T_a$ & Atmospheric temperature  \\ 
- $ \psi_a^3$ & $750$ hPa atmospheric streamfunction & $T_o$ & Ocean temperature  \\ 
- $\psi_o$ & Ocean streamfunction & $\omega = \dv{p}{t}$ & Vertical velocity  \\ 
- $n$ & Aspect ratio & $L_R$ & Reduced Rossby deformation radius  \\ 
- $L$ & Characteristic length scale & $\rho$ & Ocean density  \\ 
- $f_0$ & Coriolis parameter & $\sigma _B$ & Boltzmann constant  \\ 
- $\lambda$ & Atmosphere-ocean heat transfer & $\sigma$ & Atmosphere static stability  \\ 
- $r$ & Bottom ocean friction & $\beta$ & Rossby parameter  \\ 
- $d = \frac{C}{\rho h}$ & Drag coefficient & $R$ & Ideal gas constant  \\ 
- $C_o$ & Ocean short wave insolation & $\gamma_o$ & Ocean heat capacity  \\ 
- $C_a$ & Atmosphere short wave insolation & $\gamma_a$ & Atmosphere heat capacity  \\ 
- $k_d$ & Atmospheric layer friction & $T_a^0$ & Atmosphere base temperature  \\ 
- $k'_d$ & Atmosphere ocean layer friction & $T_o ^0$ & Ocean base temperature  \\ 
- $h$ & Ocean depth & $\epsilon_a $ & Atmospheric emissivity  \\ 
- \hline
-\end{tabular}}
-\end{center}
+\scalebox{0.75}{\begin{tabular}{ |c c c c| } 
+ 	\hline
+ 	Term & Meaning & Term & Meaning \\
+ 	\hline
+ 	$\psi_a^1$ & $250$ hPa atmospheric streamfunction & $T_a$ & Atmospheric temperature  \\ 
+ 	$ \psi_a^3$ & $750$ hPa atmospheric streamfunction & $T_o$ & Ocean temperature  \\ 
+ 	$\psi_o$ & Ocean streamfunction & $\omega = \dv{p}{t}$ & Vertical velocity  \\ 
+ 	$n$ & Aspect ratio & $L_R$ & Reduced Rossby deformation radius  \\ 
+ 	$L$ & Characteristic length scale & $\rho$ & Ocean density  \\ 
+ 	$f_0$ & Coriolis parameter & $\sigma _B$ & Boltzmann constant  \\ 
+ 	$\lambda$ & Atmosphere-ocean heat transfer & $\sigma$ & Atmosphere static stability  \\ 
+ 	$r$ & Bottom ocean friction & $\beta$ & Rossby parameter  \\ 
+ 	$d = \frac{C}{\rho h}$ & Drag coefficient & $R$ & Ideal gas constant  \\ 
+ 	$C_o$ & Ocean short wave insolation & $\gamma_o$ & Ocean heat capacity  \\ 
+ 	$C_a$ & Atmosphere short wave insolation & $\gamma_a$ & Atmosphere heat capacity  \\ 
+ 	$k_d$ & Atmospheric layer friction & $T_a^0$ & Atmosphere base temperature  \\ 
+ 	$k'_d$ & Atmosphere ocean layer friction & $T_o ^0$ & Ocean base temperature  \\ 
+ 	$h$ & Ocean depth & $\epsilon_a $ & Atmospheric emissivity  \\ 
+ 	\hline
+	\end{tabular}}
 \caption{Terms appearing in MAOOAM model equations.} \label{MAOOAM Table}
 \label{table:1}
+\end{center}
 \end{table}
 
 \subsection{Model Dynamics}
 
-MAOOAM exhibits a low frequency variation \cite{Vannitsem2015} \cite{Vannitsem2015a}
+A fixed low spectral resolution predecessor to MAOOAM was found to exhibit a low frequency variation in the form of a coupling between atmospheric and oceanic modes \cite{Vannitsem2015} \cite{Vannitsem2015a}. This is an interesting feature of the model due to the open question on the origin of mid-latitude low frequency atmospheric variability that has been suggested by time series analysis of observed data \cite{Trenberth1990}.\\
+
+\noindent In \cite{Cruz2016} the robustness of the aforementioned low frequency variation is examined
 
 \subsection{Experimental Set up}
