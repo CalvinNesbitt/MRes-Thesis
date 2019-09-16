@@ -1,9 +1,22 @@
-\section{Ruelle's Response} \label{Section: Ruelle}
+\section{Magnets \& Butterflies} \label{Section: Ruelle}
+
 Ruelle has shown that for uniformly hyperbolic dynamical systems, the linear response far from equilibrium is similar to the linear response close to equilibrium \cite{Ruelle}. Before we present these results we will first discuss the concept of an SRB measure.
 
-\subsection{SRB Measures}
+\subsection{Symbolic Dynamics \& SRB Measures}
 
-\subsection{Linear response: the uniformly hyperbolic case}
+During the second half of the twentieth century it became apparent that a raft of formal tools developed during the $1960$s for understanding phase transitions in magnetic lattices were useful to the study of chaotic dynamical systems \cite{Baladi2000}. In particular, in contrast to the difficulty of understanding particular trajectories, it was shown that chaotic dynamical systems admit a good statistical description of their asymptotic behaviour. Specifically, the work of Sinai, Ruelle and Bowen during the $70$s showed the long time equivalence of time and spatial averages for Axiom A systems \cite{Bowen1970} \cite{Sinai1972} \cite{Bowen1975} \cite{Ruelle1976}. Following \cite{Eckmann1985} we shall refer to this equivalence as the \textbf{Natural Measure Property}:
+
+\begin{align} \label{Natural Property}
+\lim_{n \to \infty} \frac{1}{n}  \sum_{k=0}^{n-1} \phi(f^k(x)) = \int_{\Omega} \phi(y) \dd \mu(y) 
+\end{align}
+
+\noindent The proofs of the above results were obtained by translating results of Thermodynamic Formalism \cite{Ruelle2004} to that of hyperbolic dynamics via techniques of symbolic dynamics, specifically that of Markov Partitions \& sub-shifts of finite type. \\
+
+\noindent Since the proof of the above results are not the subject of this thesis we point the interested reader to the afore cited papers for details as well as \cite{Walters1982}. We do however wish to highlight a few informal points that will help explain later exposition. Firstly, the proof that the Natural Measure Property \ref{Natural Property} holds for a measure $\mu$ of  an Axiom A systems relies on two conditions along the unstable direction of the hyperbolic dynamics: ergodicity and absolute continuity of $\mu$ with respect to the Lebesgue measure. The second of these conditions is often referred to as the \textbf{SRB property} and is used to define SRB measures.
+
+\subsection{Linear response: The Uniformly Hyperbolic Case}
+
+
 
 As in chapter \ref{Chapter: LRT} we are interested in finding the response function $\chi$ that gives the linear response $\delta_t\rho (A)$ of an observable $A$ to a perturbation of the form $X(x)\phi(t)$:
 

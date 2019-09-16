@@ -6,13 +6,13 @@ Following the `Theory' section of \cite{Gritsun2007} we briefly mention an alter
 t \to \int \psi \dd{\mu_t}
 \end{align}
 
-\noindent Note $\psi$ is an observable. If so we are then hopefully able to derive an expression for the linear response to a perturbation via:
+\noindent Note $\psi$ is an observable. If it is differentiable, we are then hopefully able to derive an expression for the linear response to a perturbation via:
 
 \begin{align} \label{Baladi: Response Formula}
 \pdv{t} \int \psi \dd{\mu_t} \Big|_{t=0} 
 \end{align}
 
-\noindent We have seen that Ruelle was able to do this in the setting of uniform hyperbolic case for systems with an invariant SRB measure. The difficulty for more general chaotic systems, is that they tend to have strange attractors which are usually fractal in nature. This often leads to $\mu_t$ becoming singular meaning the evaluation of the above integral is not possible. One way of resolving this issue is to add a stochastic small white noise term $\epsilon \eta(t)$ where $(\epsilon << 1)$ to our governing dynamics:
+\noindent Of course, the difficulty in evaluating such an expression for a general chaotic system, is that it tends to have a strange attractor which is fractal in nature. This often leads to $\mu_t$ becoming singular meaning the evaluation of the above integral is not possible. We have seen that Ruelle was able to do this in the uniform hyperbolic case for systems with an invariant SRB measure. An alternative way of resolving this issue is to add a stochastic small white noise term $\epsilon \eta(t)$ where $(\epsilon << 1)$ to our governing dynamics:
 
 \begin{align}
 \dv{x}{t} = f(x) + \epsilon \eta(t) \label{Noise dynamics}

@@ -54,10 +54,20 @@ The Modular Arbitrary Order Ocean Atmosphere Model (MAOOAM) is a spectral, coupl
 \end{center}
 \end{table}
 
-\subsection{Model Dynamics}
+\subsection{Model Dynamics \& The Effects of Resolution}
 
 A fixed low spectral resolution predecessor to MAOOAM was found to exhibit a low frequency variation in the form of a coupling between atmospheric and oceanic modes \cite{Vannitsem2015} \cite{Vannitsem2015a}. This is an interesting feature of the model due to the open question on the origin of mid-latitude low frequency atmospheric variability that has been suggested by time series analysis of observed data \cite{Trenberth1990}.\\
 
-\noindent In \cite{Cruz2016} the robustness of the aforementioned low frequency variation is examined
+\noindent In \cite{Cruz2016} the robustness of the aforementioned LFV is examined for increased spectral resolution, with the authors finding that the signal strength initially decreases as the resolution is increased before returning. Of course this dependence of the dynamics on the resolution naturally leads to questions of what the is appropriate truncation level for convergence to be achieved. Examining the variance as resolution is increased, the authors find that the atmospheric components of the model converge relatively quickly whilst the ocean is much slower. The explanation given for this by the authors is the need to resolve the Rhines scale $L_{Rh}$ which seperates wave dominated QG regimes from turbulent ones \cite{Vallis2017}. Of course the problem this presents is that the resolution required to resolve $L_{Rh}$ is such that the model becomes computationally heavy and can no longer be considered light weight. This point is further built upon in \cite{DeCruz2018} where the MAOOAM Lyapunov exponent spectra are examined. Here the atmospheric instability is shown to be correctly represented whilst the central manifold dynamics, which the authors associate to the long time-scale ocean dynamics, are found not to be correctly represented at low or intermediate resolutions. These results highlight the need to investigate the role of resolution in MAOOAM, possibly through the use of the Lyapunov formalism. For example one would like to know if there is an optimal low resolution that captures the essential dynamics or to better understand the structural reasons behind the changing dynamics as resolutions increases.
 
-\subsection{Experimental Set up}
+\subsection{Experimental Setting for Constructing $\chi$}
+
+We now outline the experimental set up we will consider in MAOOAM to test the utility of linear response theory. We note that the following is identical in design to previous work such as \cite{Lucarini2017a}, \cite{Gritsun2017} and \cite{Lucarini2011}. We have chosen to look at the effect of perturbations $\delta$ to short wave radiative forcing $C_a$ on the zonally averaged wind speed $\expval{\psi}$.\\ 
+
+\noindent Our first step will be to apply perturbations of varying strength $\delta$, $2\delta$, $3\delta$ etc. to asses the linearity of the models response. Given that we do observe linear response, we will then construct the response function $\chi$. This will be done by applying a perturbation taking the form of a Heaviside step function $\Theta$ and estimating the linear response in $\expval{\psi}$ via:
+
+\begin{align}
+\expval{\psi}^1_\delta \approx \frac{\expval{\psi}_{C_a + \delta}(t) - \expval{\psi}_{C_a - \delta}(t)}{2}
+\end{align}
+
+\noindent As in \cite{Lucarini2017a} we will then be able to invert Ruelle's formula for $\chi$ when we have $\Theta$ time modulation. One would then aim to test the use of the constructed $\chi$ by comparing further model experiments with alternatively time modulated perturbations to the results predicted by $\chi$.
